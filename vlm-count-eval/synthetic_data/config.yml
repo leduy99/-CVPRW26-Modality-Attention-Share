@@ -1,0 +1,105 @@
+defaults:
+  image_size: 384
+  patch_size: 27
+  images_per_case: 200
+  count_range: [1,10] 
+  seed: 42
+  draw_grid: false  # Set to true to draw grid lines for visualization
+  
+  # Size variation settings
+  min_radius_factor: 0.3  # Factor of base_radius for minimum size (70% smaller)
+  max_radius_factor: 1.2  # Factor of base_radius for maximum size (20% larger)
+  
+  cases:
+    "1A": {name: "Circles Inside Grid Cells", size: "fixed", placement: "random_cells"}
+    "2A": {name: "Circles On Vertical Lines", size: "fixed", placement: "vertical_lines"}
+    "3A": {name: "Circles On Horizontal Lines", size: "fixed", placement: "horizontal_lines"}
+    "4A": {name: "Circles At Grid Intersections", size: "fixed", placement: "intersections"}
+    "1B": {name: "Circles Inside Grid Cells (Varied Size)", size: "varied", placement: "random_cells"}
+    "2B": {name: "Circles On Vertical Lines (Varied Size)", size: "varied", placement: "vertical_lines"}
+    "3B": {name: "Circles On Horizontal Lines (Varied Size)", size: "varied", placement: "horizontal_lines"}
+    "4B": {name: "Circles At Grid Intersections (Varied Size)", size: "varied", placement: "intersections"}
+    "2C": {name: "Circles On Vertical Lines (Random Translation)", size: "fixed", placement: "vertical_lines_translated"}
+    "3C": {name: "Circles On Horizontal Lines (Random Translation)", size: "fixed", placement: "horizontal_lines_translated"}
+    "4C": {name: "Circles At Grid Intersections (Random Translation)", size: "fixed", placement: "intersections_translated"}
+    "2D": {name: "Circles On Vertical Lines (Random Translation + Varied Size)", size: "varied", placement: "vertical_lines_translated"}
+    "3D": {name: "Circles On Horizontal Lines (Random Translation + Varied Size)", size: "varied", placement: "horizontal_lines_translated"}
+    "4D": {name: "Circles At Grid Intersections (Random Translation + Varied Size)", size: "varied", placement: "intersections_translated"}
+    "5A": {name: "Large Circles (2.5 Patch Diameter)", size: "large_25", placement: "random_cells"}
+    "6A": {name: "Extra Large Circles (3 Patch Diameter)", size: "large_30", placement: "random_cells"}
+    "7A": {name: "Extra Large Circles (3.5 Patch Diameter)", size: "large_35", placement: "random_cells"}
+    "8A": {name: "Extra Large Circles (4 Patch Diameter)", size: "large_40", placement: "random_cells"}
+
+models:
+  angga-27:
+    image_size: 384
+    patch_size: 27
+    images_per_case: 200
+    description: "Angga 384x27"
+
+  angga-14:
+    image_size: 384
+    patch_size: 14
+    images_per_case: 200
+    description: "Angga 384x14"
+    
+  # llama-3.2:
+  #   # Uses all defaults
+  #   image_size: 560
+  #   patch_size: 14
+  #   images_per_case: 10
+  #   description: "LLaMA 3.2 Vision - Uses default 448x448 with 14x14 patches"
+    
+  # llava-1.5:
+  #   # LLaVA 1.5 typically uses 336x336
+  #   image_size: 336
+  #   patch_size: 14
+  #   images_per_case: 10
+  #   description: "LLaVA 1.5 - Uses default 336x336 with 14x14 patches"
+
+  # gemma-3:
+  #   # LLaVA 1.5 typically uses 336x336
+  #   image_size: 896
+  #   patch_size: 14
+  #   images_per_case: 10
+  #   description: "LLaVA 1.5 - Uses default 336x336 with 14x14 patches"
+    
+#   llava-1.6:
+#     # LLaVA 1.6 can use different resolutions
+#     image_size: 336
+#     patch_size: 14
+#     images_per_case: 10
+#     description: "LLaVA 1.6 - Uses default 336x336 with 14x14 patches"
+    
+#   qwen2.5-vl:
+#     # Qwen2.5-VL specific settings
+#     image_size: 448
+#     patch_size: 14
+#     images_per_case: 10
+#     description: "Qwen2.5-VL - Optimized for 14x14 patch size"
+
+#   smolvlm:
+#     # Qwen2.5-VL specific settings
+#     image_size: 378
+#     patch_size: 14
+#     images_per_case: 10
+#     description: "smolvlm- Optimized for 14x14 patch size"
+    
+  # Example of model-specific overrides (commented out)
+  # model_custom:
+  #   image_size: 448
+  #   patch_size: 16
+  #   images_per_case: 500
+  #   count_range: [2, 8]
+  #   description: "Custom model with different settings"
+  #   cases:
+  #     "1A": {name: "Circles Inside Grid Cells", size: "fixed", placement: "random_cells"}
+  #     "2A": {name: "Circles On Vertical Lines", size: "fixed", placement: "vertical_lines"}
+
+output:
+  base_path: "mock-counting"
+  subdirs:
+    images: "images"
+    labels: "labels"
+  metadata_filename: "dataset_metadata.json"
+  stats_filename: "dataset_stats.json"

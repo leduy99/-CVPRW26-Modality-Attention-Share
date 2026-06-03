@@ -1,0 +1,14 @@
+{
+  "fsc147_counting": {
+    "meta_file": "datasets/FSC-147-D/training_data/fsc147_train.json",
+    "storage_type": "hybrid",
+    "data_format": "conversation",
+    "image_dir": "datasets/FSC-147-D/images_384_VarV2/"
+  },
+  "fsc147_counting_val": {
+    "meta_file": "datasets/FSC-147-D/training_data/fsc147_val.json",
+    "storage_type": "hybrid",
+    "data_format": "conversation",
+    "image_dir": "datasets/FSC-147-D/images_384_VarV2/"
+  }
+}

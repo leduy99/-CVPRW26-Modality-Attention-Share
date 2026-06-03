@@ -1,0 +1,9 @@
+{
+    "sample_dataset": {
+        "meta_file": "sample_dataset/dataset.json",
+        "storage_type": "hybrid",
+        "data_format": "conversation",
+        "image_dir": "sample_dataset/images/"
+    }
+}
+
